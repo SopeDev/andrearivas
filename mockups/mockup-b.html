@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dra. Andrea Rivas — Variante B (Editorial Dark Hero)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800;900&family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    :root{--cyan:#2dc0d1;--cyan-d:#1ba6b7;--cyan-soft:#e4f6f8;--dark:#001f29;--ink:#0b2a33;--muted:#5b7079;--line:#e6eef1}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Montserrat',system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+    h1,h2,h3,h4,.brand b{font-family:'Hanken Grotesk','Montserrat',system-ui,sans-serif}
+    .serif{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-weight:600;color:var(--dark);text-transform:none}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1180px;margin:0 auto;padding:0 28px}
+    .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14.5px;border-radius:999px;padding:13px 22px;cursor:pointer;border:2px solid transparent;transition:.18s}
+    .btn-wa{background:var(--cyan);color:#fff;box-shadow:0 10px 24px rgba(45,192,209,.35)}
+    .btn-wa:hover{background:var(--cyan-d)}
+    .btn-ghost{border-color:var(--cyan);color:var(--cyan-d)}
+    .btn-ghost:hover{background:var(--cyan-soft)}
+    .eyebrow{font-size:12.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan-d)}
+    /* header */
+    header{position:absolute;top:0;left:0;right:0;z-index:30}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .mono{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;color:#fff;font-weight:800;font-size:15px;letter-spacing:.5px}
+    .brand b{color:#fff;font-size:15px}
+    .brand small{display:block;font-size:10px;letter-spacing:2.5px;color:rgba(255,255,255,.7);margin-top:3px}
+    .menu{display:flex;gap:24px;list-style:none}
+    .menu a{font-size:12.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.82);padding:6px 0;position:relative}
+    .menu a.active{color:#fff}
+    .menu a.active::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:2px;background:var(--cyan)}
+    /* hero */
+    .hero{position:relative;background:var(--dark);color:#fff;padding:170px 0 110px;text-align:center;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(45,192,209,.22),transparent 55%)}
+    .hero::after{content:'';position:absolute;left:50%;top:0;transform:translateX(-50%);width:1100px;height:1100px;background:radial-gradient(circle,transparent 38%,rgba(45,192,209,.07) 39%,transparent 40%) ,radial-gradient(circle,transparent 48%,rgba(45,192,209,.06) 49%,transparent 50%);opacity:.7}
+    .hero .inner{position:relative;z-index:2;max-width:820px;margin:0 auto}
+    .hero h1{font-size:60px;line-height:1.04;letter-spacing:-1.2px;font-weight:800;color:var(--cyan)}
+    .hero p{color:rgba(255,255,255,.85);font-size:18px;margin:22px auto 30px;max-width:580px}
+    .hero .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+    .hero .btn-line{border-color:rgba(255,255,255,.4);color:#fff}
+    /* services */
+    section{padding:90px 0}
+    .svc{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+    .scard{padding:28px 22px;border:1px solid var(--line);border-radius:18px;text-align:left;transition:.2s}
+    .scard:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(0,31,41,.1);border-color:var(--cyan)}
+    .scard .ic{width:50px;height:50px;border-radius:13px;background:var(--cyan-soft);display:grid;place-items:center;font-size:23px;margin-bottom:16px}
+    .scard h3{font-size:16px;color:var(--dark);margin-bottom:8px}
+    .scard p{font-size:13.5px;color:var(--muted)}
+    /* about */
+    .about{background:#f5fbfc;position:relative;overflow:hidden}
+    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;position:relative;z-index:2}
+    .about h2{font-size:34px;color:var(--dark);letter-spacing:-.5px;margin:12px 0 16px;font-weight:800}
+    .about p{color:var(--muted);font-size:15.5px;margin-bottom:14px}
+    .halftone{aspect-ratio:1;border-radius:50%;background:
+      radial-gradient(circle at center,var(--cyan) 0 22%,transparent 23%) ,
+      repeating-radial-gradient(circle at center,var(--cyan) 0 2px,transparent 3px 14px);
+      opacity:.85;mask:radial-gradient(circle at center,#000,transparent 72%);-webkit-mask:radial-gradient(circle at center,#000,transparent 72%)}
+    /* gallery + prevention */
+    .gallery{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .ph{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:16/8;background:linear-gradient(135deg,#bfe6eb,#eef9fb)}
+    .ph:nth-child(2){background:linear-gradient(135deg,#06323d,#0b4b5b)}
+    .ph::after{content:attr(data-label);position:absolute;left:16px;bottom:12px;color:#fff;font-size:12px;font-weight:600;opacity:.85}
+    .prevbar{margin-top:26px;background:#eef4f6;border-radius:18px;padding:26px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .prevbar .l{display:flex;gap:14px;align-items:center}
+    .prevbar .ic{width:46px;height:46px;border-radius:12px;background:#fff;display:grid;place-items:center;font-size:22px}
+    .prevbar p{font-size:15px;color:var(--ink);max-width:560px}
+    .prevbar b{color:var(--dark)}
+    /* locations / tabs */
+    .loc{text-align:center}
+    .loc .head{max-width:620px;margin:0 auto 34px}
+    .loc h2{font-size:34px;color:var(--dark);letter-spacing:-.5px;font-weight:800;margin-top:10px}
+    .tabs{display:inline-flex;gap:6px;background:#f1f7f8;border-radius:999px;padding:6px;margin-bottom:30px}
+    .tabs button{border:0;background:transparent;font:inherit;font-weight:700;font-size:14px;color:var(--muted);padding:11px 26px;border-radius:999px;cursor:pointer;transition:.18s}
+    .tabs button.on{background:var(--cyan);color:#fff;box-shadow:0 8px 18px rgba(45,192,209,.35)}
+    .panel{display:none;grid-template-columns:1.1fr .9fr;gap:30px;text-align:left;align-items:stretch}
+    .panel.on{display:grid}
+    .map{border-radius:20px;background:linear-gradient(135deg,#d6eef1,#eff9fa);position:relative;min-height:300px;overflow:hidden;border:1px solid var(--line)}
+    .map::before{content:'';position:absolute;inset:0;background:
+      linear-gradient(rgba(45,192,209,.12) 1px,transparent 1px) 0 0/40px 40px,
+      linear-gradient(90deg,rgba(45,192,209,.12) 1px,transparent 1px) 0 0/40px 40px}
+    .map .pin{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);font-size:34px;filter:drop-shadow(0 6px 10px rgba(0,31,41,.25))}
+    .map .tag{position:absolute;left:18px;bottom:16px;background:#fff;border-radius:10px;padding:8px 12px;font-size:12.5px;font-weight:700;color:var(--dark);box-shadow:0 8px 18px rgba(0,31,41,.12)}
+    .info{padding:8px 4px}
+    .info .city-label{font-size:18px;margin-bottom:4px}
+    .info h3{font-size:24px;color:var(--dark);margin:6px 0 14px}
+    .info .line{display:flex;gap:10px;font-size:14.5px;color:var(--ink);margin-bottom:10px}
+    .info .line span{color:var(--cyan-d)}
+    .info .days{color:var(--muted)}
+    .info .btn{margin-top:16px}
+    /* footer */
+    footer{background:var(--dark);color:#cfe2e7;padding:54px 0 28px}
+    .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:34px}
+    .footer-brand b{color:#fff;font-size:16px}
+    .footer-brand small{display:block;letter-spacing:2.5px;font-size:10px;color:#79a3ad;margin-top:4px}
+    .footer-brand p{margin-top:14px;font-size:13.5px;color:#9fc0c7;max-width:250px}
+    footer h4{color:#fff;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+    footer ul{list-style:none;display:grid;gap:9px}
+    footer ul a{font-size:13.5px;color:#a9c8cf}
+    footer ul a:hover{color:var(--cyan)}
+    .lang{display:inline-flex;border:1px solid #1c4754;border-radius:999px;overflow:hidden;margin-top:4px}
+    .lang button{background:transparent;border:0;color:#9fc0c7;font:inherit;font-size:12px;font-weight:700;padding:7px 15px;cursor:pointer}
+    .lang button.on{background:var(--cyan);color:#fff}
+    .fbar{border-top:1px solid #143842;margin-top:40px;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:#79a3ad}
+    @media (max-width:920px){
+      .menu{display:none}
+      .hero h1{font-size:40px}
+      .svc{grid-template-columns:1fr 1fr}
+      .about-grid,.panel.on,.gallery{grid-template-columns:1fr}
+      .fgrid{grid-template-columns:1fr 1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <span class="mono">AR</span>
+        <span><b>Dra. Andrea Rivas</b><small>OFTALMOLOGÍA</small></span>
+      </a>
+      <nav><ul class="menu">
+        <li><a class="active" href="#">Inicio</a></li>
+        <li><a href="#">Acerca de</a></li>
+        <li><a href="#">Servicios</a></li>
+        <li><a href="#">Enfermedades</a></li>
+        <li><a href="#sedes">Sedes</a></li>
+      </ul></nav>
+      <a class="btn btn-wa" href="https://wa.me/528120029859" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="container inner">
+      <div class="eyebrow" style="color:var(--cyan)">Cirujana oftalmóloga · Catarata y glaucoma</div>
+      <h1 style="margin-top:14px">Expertos en el cuidado de tus ojos</h1>
+      <p>Atención oftalmológica integral con tecnología avanzada y un trato cercano, para que veas mejor cada día.</p>
+      <div class="row">
+        <a class="btn btn-wa" href="https://wa.me/528120029859" target="_blank" rel="noopener">Agenda por WhatsApp</a>
+        <a class="btn btn-line" href="#servicios">Ver servicios</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="servicios">
+    <div class="container">
+      <div class="svc">
+        <div class="scard"><div class="ic">👁️</div><h3>Consulta oftalmológica</h3><p>Evaluación completa para adultos y niños.</p></div>
+        <div class="scard"><div class="ic">🔬</div><h3>Cirugía de catarata</h3><p>Facoemulsificación con lente intraocular a tu medida.</p></div>
+        <div class="scard"><div class="ic">🩺</div><h3>Glaucoma y retina</h3><p>Diagnóstico, control y tratamiento de alta especialidad.</p></div>
+        <div class="scard"><div class="ic">👓</div><h3>Cirugía refractiva</h3><p>Reduce o elimina la dependencia de lentes.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="container about-grid">
+      <div>
+        <div class="serif" style="font-size:18px">Acerca de</div>
+        <h2>Dra. Andrea Rivas</h2>
+        <p>Cirujana oftalmóloga con alta especialidad en catarata y glaucoma. Mi práctica combina evidencia científica con un trato humano y cercano.</p>
+        <p>Acompaño a cada paciente en el cuidado de su visión, explicando con claridad cada diagnóstico y plan de tratamiento.</p>
+        <a class="btn btn-ghost" href="#">Conoce más →</a>
+      </div>
+      <div class="halftone"></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="container">
+      <div class="gallery">
+        <div class="ph" data-label="Foto: consultorio / equipo"></div>
+        <div class="ph" data-label="Foto: cirugía / microscopio"></div>
+      </div>
+      <div class="prevbar">
+        <div class="l">
+          <div class="ic">👁️</div>
+          <p><b>La prevención es clave</b> para cuidar tu visión. Muchas enfermedades oculares no presentan síntomas en etapas tempranas.</p>
+        </div>
+        <a class="btn btn-ghost" href="#">Ver enfermedades →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="loc" id="sedes" style="background:#f5fbfc">
+    <div class="container">
+      <div class="head">
+        <div class="eyebrow">¿Dónde atenderte?</div>
+        <h2>Nuestras sedes</h2>
+      </div>
+      <div class="tabs">
+        <button class="on" data-tab="tj">Tijuana</button>
+        <button data-tab="en">Ensenada</button>
+        <button data-tab="mty">Monterrey</button>
+      </div>
+
+      <div class="panel on" id="tj">
+        <div class="map"><div class="pin">📍</div><div class="tag">Tijuana · Zona Río</div></div>
+        <div class="info">
+          <div class="serif city-label">Tijuana</div>
+          <h3>Río Médica, Zona Río</h3>
+          <div class="line"><span>📍</span> Av. Leona Vicario 1451, 6° piso Int. 61</div>
+          <div class="line"><span>🗓️</span> <span class="days">Días y horarios — próximamente</span></div>
+          <a class="btn btn-wa" href="https://wa.me/528120029859?text=Hola%2C%20quiero%20agendar%20en%20Tijuana" target="_blank" rel="noopener">Agenda en Tijuana</a>
+        </div>
+      </div>
+
+      <div class="panel" id="en">
+        <div class="map"><div class="pin">📍</div><div class="tag">Ensenada</div></div>
+        <div class="info">
+          <div class="serif city-label">Ensenada</div>
+          <h3>Consulta Ensenada</h3>
+          <div class="line"><span>📍</span> Dirección — próximamente</div>
+          <div class="line"><span>🗓️</span> <span class="days">Días y horarios — próximamente</span></div>
+          <a class="btn btn-wa" href="https://wa.me/528120029859?text=Hola%2C%20quiero%20agendar%20en%20Ensenada" target="_blank" rel="noopener">Agenda en Ensenada</a>
+        </div>
+      </div>
+
+      <div class="panel" id="mty">
+        <div class="map"><div class="pin">📍</div><div class="tag">Monterrey · Obispado</div></div>
+        <div class="info">
+          <div class="serif city-label">Monterrey</div>
+          <h3>Clínica Láser Obispado</h3>
+          <div class="line"><span>📍</span> Belisario Domínguez #2551, Obispado</div>
+          <div class="line"><span>🗓️</span> <span class="days">Días y horarios — próximamente</span></div>
+          <a class="btn btn-wa" href="https://wa.me/528120029859?text=Hola%2C%20quiero%20agendar%20en%20Monterrey" target="_blank" rel="noopener">Agenda en Monterrey</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="fgrid">
+        <div class="footer-brand">
+          <b>Dra. Andrea Rivas</b><small>OFTALMOLOGÍA</small>
+          <p>Cuidado oftalmológico integral en Tijuana, Ensenada y Monterrey.</p>
+        </div>
+        <div><h4>Navegación</h4><ul><li><a href="#">Inicio</a></li><li><a href="#">Servicios</a></li><li><a href="#">Enfermedades</a></li><li><a href="#">FAQ</a></li></ul></div>
+        <div><h4>Sedes</h4><ul><li><a href="#sedes">Tijuana</a></li><li><a href="#sedes">Ensenada</a></li><li><a href="#sedes">Monterrey</a></li></ul></div>
+        <div>
+          <h4>Idioma</h4>
+          <div class="lang"><button class="on">ES</button><button>EN</button></div>
+          <ul style="margin-top:16px"><li><a href="https://wa.me/528120029859" target="_blank" rel="noopener">WhatsApp →</a></li></ul>
+        </div>
+      </div>
+      <div class="fbar">
+        <span>© 2026 Dra. Andrea Rivas. Todos los derechos reservados.</span>
+        <span>Aviso de privacidad</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.tabs button').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        document.querySelectorAll('.tabs button').forEach(function(b){ b.classList.remove('on') })
+        document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('on') })
+        btn.classList.add('on')
+        document.getElementById(btn.dataset.tab).classList.add('on')
+      })
+    })
+  </script>
+</body>
+</html>

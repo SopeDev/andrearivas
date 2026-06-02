@@ -17,6 +17,12 @@
     body{font-family:'Montserrat',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
     h1,h2,h3,h4,.brand b{font-family:'Hanken Grotesk','Montserrat',system-ui,sans-serif}
     .serif{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-weight:600;color:var(--dark);text-transform:none}
+    .svg-icon{display:inline-flex;align-items:center;justify-content:center;color:var(--cyan-d);flex-shrink:0}
+    .svg-icon svg{width:24px;height:24px;display:block}
+    .map .pin .svg-icon svg{width:40px;height:40px}
+    .line .svg-icon svg{width:18px;height:18px}
+    .checks .check-icon{width:22px;height:22px;border-radius:50%;background:var(--cyan);display:grid;place-items:center;flex-shrink:0}
+    .checks .check-icon svg{width:14px;height:14px;color:#fff}
     a{text-decoration:none;color:inherit}
     .container{max-width:1180px;margin:0 auto;padding:0 28px}
     .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14.5px;border-radius:999px;padding:13px 22px;cursor:pointer;border:2px solid transparent;transition:.18s}
@@ -28,11 +34,9 @@
     /* header */
     header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
     .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .mark{width:42px;height:42px;border-radius:11px;background:var(--cyan);display:grid;place-items:center;box-shadow:0 6px 16px rgba(45,192,209,.35)}
-    .mark i{width:15px;height:15px;background:#fff;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%)}
-    .brand b{color:var(--dark);font-size:16px;line-height:1}
-    .brand small{display:block;font-size:10.5px;letter-spacing:2.5px;color:var(--muted);margin-top:3px}
+    .brand{display:flex;align-items:center}
+    .logo-img{height:40px;width:auto;display:block}
+    .logo-icon{width:42px;height:42px;flex-shrink:0;display:block}
     .menu{display:flex;gap:28px;list-style:none}
     .menu a{font-size:14px;font-weight:600;color:var(--ink);padding:6px 0;position:relative}
     .menu a.active{color:var(--cyan-d)}
@@ -67,7 +71,7 @@
     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
     .scard{border:1px solid var(--line);border-radius:20px;padding:30px 26px;background:#fff;transition:.2s}
     .scard:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(0,31,41,.1);border-color:var(--cyan)}
-    .ic{width:54px;height:54px;border-radius:14px;background:var(--cyan-soft);display:grid;place-items:center;margin-bottom:18px;font-size:24px}
+    .ic{width:54px;height:54px;border-radius:14px;background:var(--cyan-soft);display:grid;place-items:center;margin-bottom:18px}
     .scard h3{font-size:19px;color:var(--dark);margin-bottom:8px}
     .scard p{font-size:14px;color:var(--muted)}
     .scard .more{margin-top:16px;font-size:13px;font-weight:700;color:var(--cyan-d)}
@@ -79,20 +83,18 @@
     .about p{color:var(--muted);font-size:15.5px;margin-bottom:14px}
     .checks{list-style:none;margin:18px 0 26px;display:grid;gap:12px}
     .checks li{display:flex;gap:10px;align-items:center;font-size:14.5px;color:var(--ink);font-weight:600}
-    .checks i{width:22px;height:22px;border-radius:50%;background:var(--cyan);color:#fff;display:grid;place-items:center;font-size:12px;font-style:normal}
     /* contact strip */
     .contact{background:linear-gradient(100deg,var(--cyan-soft),#fff)}
     .contact .container{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:46px 28px;flex-wrap:wrap}
     .contact h2{font-size:28px;color:var(--dark);letter-spacing:-.5px}
     .contact p{color:var(--muted);margin-top:6px;font-size:15px}
     .contact .col{display:flex;gap:16px;align-items:center}
-    .pin{width:50px;height:50px;border-radius:14px;background:#fff;display:grid;place-items:center;font-size:22px;box-shadow:0 8px 20px rgba(0,31,41,.1)}
+    .pin{width:50px;height:50px;border-radius:14px;background:#fff;display:grid;place-items:center;box-shadow:0 8px 20px rgba(0,31,41,.1)}
     /* footer */
     footer{background:var(--dark);color:#cfe2e7;padding:54px 0 28px}
     .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:34px}
-    .footer-brand b{color:#fff;font-size:17px}
-    .footer-brand small{display:block;letter-spacing:2.5px;font-size:10.5px;color:#79a3ad;margin-top:4px}
-    .footer-brand p{margin-top:14px;font-size:13.5px;color:#9fc0c7;max-width:260px}
+    .footer-brand .logo-icon{margin-bottom:14px}
+    .footer-brand p{margin-top:0;font-size:13.5px;color:#9fc0c7;max-width:260px}
     footer h4{color:#fff;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
     footer ul{list-style:none;display:grid;gap:10px}
     footer ul a{font-size:14px;color:#a9c8cf}
@@ -113,9 +115,8 @@
 <body>
   <header>
     <div class="container nav">
-      <a class="brand" href="index.html">
-        <span class="mark"><i></i></span>
-        <span><b>Dra. Andrea Rivas</b><small>OFTALMOLOGÍA</small></span>
+      <a class="brand" href="/mockups/">
+        <img src="/logo.svg" alt="Dra. Andrea Rivas" class="logo-img" />
       </a>
       <nav><ul class="menu">
         <li><a class="active" href="#">Inicio</a></li>
@@ -167,19 +168,19 @@
       </div>
       <div class="cards">
         <div class="scard">
-          <div class="ic">🔬</div>
+          <div class="ic"><span class="svg-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#scalpel"></use></svg></span></div>
           <h3>Cirugías</h3>
           <p>Catarata, glaucoma, refractiva, pterigión, chalazión e inyecciones intravítreas.</p>
           <div class="more">Conocer cirugías →</div>
         </div>
         <div class="scard">
-          <div class="ic">👁️</div>
+          <div class="ic"><span class="svg-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#eye"></use></svg></span></div>
           <h3>Enfermedades</h3>
           <p>Ojo seco, queratocono, retinopatía diabética, DMRE y más patologías oculares.</p>
           <div class="more">Ver enfermedades →</div>
         </div>
         <div class="scard">
-          <div class="ic">📋</div>
+          <div class="ic"><span class="svg-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#clipboard"></use></svg></span></div>
           <h3>Examen oftalmológico</h3>
           <p>Evaluación integral de la salud de tus ojos, para adultos y niños.</p>
           <div class="more">Cómo es la consulta →</div>
@@ -197,9 +198,9 @@
         <h2>Comprometida con tu visión y bienestar</h2>
         <p>Mi práctica se basa en principios éticos y en evidencia científica, escuchando con atención a cada paciente y acompañándolo en cada paso de su tratamiento.</p>
         <ul class="checks">
-          <li><i>✓</i> Alta especialidad en catarata y glaucoma</li>
-          <li><i>✓</i> Tecnología diagnóstica y quirúrgica avanzada</li>
-          <li><i>✓</i> Atención cálida para toda la familia</li>
+          <li><span class="check-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#check"></use></svg></span> Alta especialidad en catarata y glaucoma</li>
+          <li><span class="check-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#check"></use></svg></span> Tecnología diagnóstica y quirúrgica avanzada</li>
+          <li><span class="check-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#check"></use></svg></span> Atención cálida para toda la familia</li>
         </ul>
         <a class="btn btn-ghost" href="#">Conoce más sobre mí →</a>
       </div>
@@ -210,7 +211,7 @@
   <section class="contact" id="contacto" style="padding:0">
     <div class="container">
       <div class="col">
-        <div class="pin">💬</div>
+        <div class="pin"><span class="svg-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#chat"></use></svg></span></div>
         <div>
           <div class="serif" style="font-size:16px;margin-bottom:2px">Contacto</div>
           <h2>¿List@ para cuidar tu visión?</h2>
@@ -218,7 +219,7 @@
         </div>
       </div>
       <div class="col">
-        <div class="pin">📍</div>
+        <div class="pin"><span class="svg-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#pin"></use></svg></span></div>
         <div>
           <div class="serif" style="font-size:16px;margin-bottom:2px">Ubicación</div>
           <h2 style="font-size:22px">Tijuana · Ensenada · Monterrey</h2>
@@ -237,7 +238,7 @@
     <div class="container">
       <div class="fgrid">
         <div class="footer-brand">
-          <b>Dra. Andrea Rivas</b><small>OFTALMOLOGÍA</small>
+          <img src="/icon.svg" alt="" class="logo-icon" width="40" height="40" />
           <p>Cirujana oftalmóloga con alta especialidad en catarata y glaucoma.</p>
         </div>
         <div>

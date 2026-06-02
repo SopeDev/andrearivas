@@ -15,6 +15,10 @@ export const metadata = {
   title: 'Dra. Andrea Rivas | Oftalmología',
   description:
     'Sitio web de la Dra. Andrea Rivas — servicios de oftalmología en Tijuana y Monterrey.',
+  icons: {
+    icon: '/icon.svg',
+    apple: '/icon.svg',
+  },
 }
 
 export default function RootLayout({ children }) {

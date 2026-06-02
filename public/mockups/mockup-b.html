@@ -14,6 +14,10 @@
     body{font-family:'Montserrat',system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.55}
     h1,h2,h3,h4,.brand b{font-family:'Hanken Grotesk','Montserrat',system-ui,sans-serif}
     .serif{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-weight:600;color:var(--dark);text-transform:none}
+    .svg-icon{display:inline-flex;align-items:center;justify-content:center;color:var(--cyan-d);flex-shrink:0}
+    .svg-icon svg{width:24px;height:24px;display:block}
+    .map .pin .svg-icon svg{width:40px;height:40px}
+    .line .svg-icon svg{width:18px;height:18px}
     a{text-decoration:none;color:inherit}
     .container{max-width:1180px;margin:0 auto;padding:0 28px}
     .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14.5px;border-radius:999px;padding:13px 22px;cursor:pointer;border:2px solid transparent;transition:.18s}
@@ -26,7 +30,7 @@
     header{position:absolute;top:0;left:0;right:0;z-index:30}
     .nav{display:flex;align-items:center;justify-content:space-between;height:78px}
     .brand{display:flex;align-items:center;gap:12px}
-    .mono{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;color:#fff;font-weight:800;font-size:15px;letter-spacing:.5px}
+    .logo-icon{width:42px;height:42px;flex-shrink:0;display:block}
     .brand b{color:#fff;font-size:15px}
     .brand small{display:block;font-size:10px;letter-spacing:2.5px;color:rgba(255,255,255,.7);margin-top:3px}
     .menu{display:flex;gap:24px;list-style:none}
@@ -47,7 +51,7 @@
     .svc{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
     .scard{padding:28px 22px;border:1px solid var(--line);border-radius:18px;text-align:left;transition:.2s}
     .scard:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(0,31,41,.1);border-color:var(--cyan)}
-    .scard .ic{width:50px;height:50px;border-radius:13px;background:var(--cyan-soft);display:grid;place-items:center;font-size:23px;margin-bottom:16px}
+    .scard .ic{width:50px;height:50px;border-radius:13px;background:var(--cyan-soft);display:grid;place-items:center;margin-bottom:16px}
     .scard h3{font-size:16px;color:var(--dark);margin-bottom:8px}
     .scard p{font-size:13.5px;color:var(--muted)}
     /* about */
@@ -66,7 +70,7 @@
     .ph::after{content:attr(data-label);position:absolute;left:16px;bottom:12px;color:#fff;font-size:12px;font-weight:600;opacity:.85}
     .prevbar{margin-top:26px;background:#eef4f6;border-radius:18px;padding:26px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
     .prevbar .l{display:flex;gap:14px;align-items:center}
-    .prevbar .ic{width:46px;height:46px;border-radius:12px;background:#fff;display:grid;place-items:center;font-size:22px}
+    .prevbar .ic{width:46px;height:46px;border-radius:12px;background:#fff;display:grid;place-items:center}
     .prevbar p{font-size:15px;color:var(--ink);max-width:560px}
     .prevbar b{color:var(--dark)}
     /* locations / tabs */
@@ -82,7 +86,7 @@
     .map::before{content:'';position:absolute;inset:0;background:
       linear-gradient(rgba(45,192,209,.12) 1px,transparent 1px) 0 0/40px 40px,
       linear-gradient(90deg,rgba(45,192,209,.12) 1px,transparent 1px) 0 0/40px 40px}
-    .map .pin{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);font-size:34px;filter:drop-shadow(0 6px 10px rgba(0,31,41,.25))}
+    .map .pin{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);filter:drop-shadow(0 6px 10px rgba(0,31,41,.25))}
     .map .tag{position:absolute;left:18px;bottom:16px;background:#fff;border-radius:10px;padding:8px 12px;font-size:12.5px;font-weight:700;color:var(--dark);box-shadow:0 8px 18px rgba(0,31,41,.12)}
     .info{padding:8px 4px}
     .info .city-label{font-size:18px;margin-bottom:4px}
@@ -94,9 +98,8 @@
     /* footer */
     footer{background:var(--dark);color:#cfe2e7;padding:54px 0 28px}
     .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:34px}
-    .footer-brand b{color:#fff;font-size:16px}
-    .footer-brand small{display:block;letter-spacing:2.5px;font-size:10px;color:#79a3ad;margin-top:4px}
-    .footer-brand p{margin-top:14px;font-size:13.5px;color:#9fc0c7;max-width:250px}
+    .footer-brand .logo-icon{margin-bottom:14px}
+    .footer-brand p{margin-top:0;font-size:13.5px;color:#9fc0c7;max-width:250px}
     footer h4{color:#fff;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
     footer ul{list-style:none;display:grid;gap:9px}
     footer ul a{font-size:13.5px;color:#a9c8cf}
@@ -117,8 +120,8 @@
 <body>
   <header>
     <div class="container nav">
-      <a class="brand" href="index.html">
-        <span class="mono">AR</span>
+      <a class="brand" href="/mockups/">
+        <img src="/icon.svg" alt="" class="logo-icon" width="42" height="42" />
         <span><b>Dra. Andrea Rivas</b><small>OFTALMOLOGÍA</small></span>
       </a>
       <nav><ul class="menu">
@@ -147,10 +150,10 @@
   <section id="servicios">
     <div class="container">
       <div class="svc">
-        <div class="scard"><div class="ic">👁️</div><h3>Consulta oftalmológica</h3><p>Evaluación completa para adultos y niños.</p></div>
-        <div class="scard"><div class="ic">🔬</div><h3>Cirugía de catarata</h3><p>Facoemulsificación con lente intraocular a tu medida.</p></div>
-        <div class="scard"><div class="ic">🩺</div><h3>Glaucoma y retina</h3><p>Diagnóstico, control y tratamiento de alta especialidad.</p></div>
-        <div class="scard"><div class="ic">👓</div><h3>Cirugía refractiva</h3><p>Reduce o elimina la dependencia de lentes.</p></div>
+        <div class="scard"><div class="ic"><span class="svg-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#eye"></use></svg></span></div><h3>Consulta oftalmológica</h3><p>Evaluación completa para adultos y niños.</p></div>
+        <div class="scard"><div class="ic"><span class="svg-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#scalpel"></use></svg></span></div><h3>Cirugía de catarata</h3><p>Facoemulsificación con lente intraocular a tu medida.</p></div>
+        <div class="scard"><div class="ic"><span class="svg-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#pulse"></use></svg></span></div><h3>Glaucoma y retina</h3><p>Diagnóstico, control y tratamiento de alta especialidad.</p></div>
+        <div class="scard"><div class="ic"><span class="svg-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#glasses"></use></svg></span></div><h3>Cirugía refractiva</h3><p>Reduce o elimina la dependencia de lentes.</p></div>
       </div>
     </div>
   </section>
@@ -176,7 +179,7 @@
       </div>
       <div class="prevbar">
         <div class="l">
-          <div class="ic">👁️</div>
+          <div class="ic"><span class="svg-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#eye"></use></svg></span></div>
           <p><b>La prevención es clave</b> para cuidar tu visión. Muchas enfermedades oculares no presentan síntomas en etapas tempranas.</p>
         </div>
         <a class="btn btn-ghost" href="#">Ver enfermedades →</a>
@@ -197,34 +200,34 @@
       </div>
 
       <div class="panel on" id="tj">
-        <div class="map"><div class="pin">📍</div><div class="tag">Tijuana · Zona Río</div></div>
+        <div class="map"><div class="pin"><span class="svg-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#pin"></use></svg></span></div><div class="tag">Tijuana · Zona Río</div></div>
         <div class="info">
           <div class="serif city-label">Tijuana</div>
           <h3>Río Médica, Zona Río</h3>
-          <div class="line"><span>📍</span> Av. Leona Vicario 1451, 6° piso Int. 61</div>
-          <div class="line"><span>🗓️</span> <span class="days">Días y horarios — próximamente</span></div>
+          <div class="line"><span class="svg-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#pin"></use></svg></span> Av. Leona Vicario 1451, 6° piso Int. 61</div>
+          <div class="line"><span class="svg-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#calendar"></use></svg></span> <span class="days">Días y horarios — próximamente</span></div>
           <a class="btn btn-wa" href="https://wa.me/528120029859?text=Hola%2C%20quiero%20agendar%20en%20Tijuana" target="_blank" rel="noopener">Agenda en Tijuana</a>
         </div>
       </div>
 
       <div class="panel" id="en">
-        <div class="map"><div class="pin">📍</div><div class="tag">Ensenada</div></div>
+        <div class="map"><div class="pin"><span class="svg-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#pin"></use></svg></span></div><div class="tag">Ensenada</div></div>
         <div class="info">
           <div class="serif city-label">Ensenada</div>
           <h3>Consulta Ensenada</h3>
-          <div class="line"><span>📍</span> Dirección — próximamente</div>
-          <div class="line"><span>🗓️</span> <span class="days">Días y horarios — próximamente</span></div>
+          <div class="line"><span class="svg-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#pin"></use></svg></span> Dirección — próximamente</div>
+          <div class="line"><span class="svg-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#calendar"></use></svg></span> <span class="days">Días y horarios — próximamente</span></div>
           <a class="btn btn-wa" href="https://wa.me/528120029859?text=Hola%2C%20quiero%20agendar%20en%20Ensenada" target="_blank" rel="noopener">Agenda en Ensenada</a>
         </div>
       </div>
 
       <div class="panel" id="mty">
-        <div class="map"><div class="pin">📍</div><div class="tag">Monterrey · Obispado</div></div>
+        <div class="map"><div class="pin"><span class="svg-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#pin"></use></svg></span></div><div class="tag">Monterrey · Obispado</div></div>
         <div class="info">
           <div class="serif city-label">Monterrey</div>
           <h3>Clínica Láser Obispado</h3>
-          <div class="line"><span>📍</span> Belisario Domínguez #2551, Obispado</div>
-          <div class="line"><span>🗓️</span> <span class="days">Días y horarios — próximamente</span></div>
+          <div class="line"><span class="svg-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#pin"></use></svg></span> Belisario Domínguez #2551, Obispado</div>
+          <div class="line"><span class="svg-icon" aria-hidden="true"><svg><use href="/mockups/icons.svg#calendar"></use></svg></span> <span class="days">Días y horarios — próximamente</span></div>
           <a class="btn btn-wa" href="https://wa.me/528120029859?text=Hola%2C%20quiero%20agendar%20en%20Monterrey" target="_blank" rel="noopener">Agenda en Monterrey</a>
         </div>
       </div>
@@ -235,7 +238,7 @@
     <div class="container">
       <div class="fgrid">
         <div class="footer-brand">
-          <b>Dra. Andrea Rivas</b><small>OFTALMOLOGÍA</small>
+          <img src="/icon.svg" alt="" class="logo-icon" width="40" height="40" />
           <p>Cuidado oftalmológico integral en Tijuana, Ensenada y Monterrey.</p>
         </div>
         <div><h4>Navegación</h4><ul><li><a href="#">Inicio</a></li><li><a href="#">Servicios</a></li><li><a href="#">Enfermedades</a></li><li><a href="#">FAQ</a></li></ul></div>

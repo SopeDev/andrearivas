@@ -29,17 +29,8 @@
       padding: 48px 24px;
     }
     .wrap { max-width: 820px; width: 100%; }
-    .brand { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
-    .mark {
-      width: 46px; height: 46px; border-radius: 12px;
-      background: var(--cyan);
-      display: grid; place-items: center;
-      box-shadow: 0 8px 20px rgba(45,192,209,.35);
-    }
-    .mark span {
-      width: 16px; height: 16px; background: #fff;
-      clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
-    }
+    .brand { display: flex; align-items: center; margin-bottom: 8px; }
+    .logo-img { height: 44px; width: auto; display: block; }
     h1, h2 { font-family: 'Hanken Grotesk', 'Montserrat', system-ui, sans-serif; }
     h1 { font-size: 30px; font-weight: 800; letter-spacing: -.5px; color: var(--dark); }
     .sub { color: var(--muted); margin: 10px 0 36px; font-size: 16px; max-width: 620px; }
@@ -71,38 +62,31 @@
 <body>
   <div class="wrap">
     <div class="brand">
-      <div class="mark"><span></span></div>
-      <div>
-        <strong style="color:var(--dark);font-size:18px;">Dra. Andrea Rivas</strong>
-        <div style="font-size:12px;letter-spacing:2px;color:var(--muted);">OFTALMOLOGÍA</div>
-      </div>
+      <img src="/logo.svg" alt="Dra. Andrea Rivas" class="logo-img" />
     </div>
     <h1>Prototipos de homepage</h1>
-    <p class="sub">Dos direcciones de layout en HTML/CSS estático. Colores de marca: <strong>#2dc0d1</strong> y <strong>#001f29</strong>.</p>
+    <p class="sub">Dos direcciones de layout en HTML/CSS estático.</p>
 
     <div class="grid">
-      <a class="card" href="mockup-a.html">
-        <div class="thumb ta"><span>VARIANTE A</span></div>
+      <a class="card" href="/mockups/mockup-a.html">
+        <div class="thumb ta"></div>
         <div class="body">
-          <div class="tag">Reference Classic</div>
-          <h2>Limpia y confiable</h2>
+          <div class="tag">Classic</div>
+          <h2>Limpia</h2>
           <p>Hero dividido foto/texto, tarjetas de servicios, sección "sobre mí" y franja de contacto al final.</p>
           <div class="open">Ver variante A →</div>
         </div>
       </a>
-      <a class="card" href="mockup-b.html">
-        <div class="thumb tb"><span>VARIANTE B</span></div>
+      <a class="card" href="/mockups/mockup-b.html">
+        <div class="thumb tb"></div>
         <div class="body">
           <div class="tag">Editorial Dark Hero</div>
-          <h2>Hero oscuro y sedes</h2>
+          <h2>Hero oscuro</h2>
           <p>Hero #001f29, servicios en 4 columnas, halftone y pestañas Tijuana / Ensenada / Monterrey.</p>
           <div class="open">Ver variante B →</div>
         </div>
       </a>
     </div>
-
-    <p class="note">Variante “Social Brand” descartada.</p>
-    <p class="foot">Abre cada archivo en el navegador. Todo el contacto lleva a WhatsApp (+52 812 002 9859).</p>
   </div>
 </body>
 </html>

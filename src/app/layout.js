@@ -1,20 +1,33 @@
-import { Geist, Geist_Mono } from 'next/font/google'
+import {
+  Hanken_Grotesk,
+  Montserrat,
+  Source_Serif_4,
+} from 'next/font/google'
 import './globals.css'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const hankenGrotesk = Hanken_Grotesk({
+  variable: '--font-heading-family',
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
 })
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const montserrat = Montserrat({
+  variable: '--font-sans-family',
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+})
+
+const sourceSerif = Source_Serif_4({
+  variable: '--font-serif-family',
+  subsets: ['latin'],
+  style: ['italic'],
+  weight: ['400', '600'],
 })
 
 export const metadata = {
   title: 'Dra. Andrea Rivas | Oftalmología',
   description:
-    'Sitio web de la Dra. Andrea Rivas — servicios de oftalmología en Tijuana y Monterrey.',
+    'Oftalmóloga cirujana especializada en segmento anterior y glaucoma. Atención en Tijuana, Ensenada y Monterrey.',
   icons: {
     icon: '/icon.svg',
     apple: '/icon.svg',
@@ -25,7 +38,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${hankenGrotesk.variable} ${montserrat.variable} ${sourceSerif.variable} h-full`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

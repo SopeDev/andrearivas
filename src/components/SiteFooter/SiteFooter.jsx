@@ -2,7 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { SiteShell } from '@/components/SiteContainer/SiteContainer'
 import { footerCityLinks, footerNavLinks, site } from '@/data/site'
-import { whatsappBaseUrl } from '@/lib/whatsapp'
 
 export function SiteFooter() {
   return (
@@ -74,28 +73,13 @@ export function SiteFooter() {
                 EN
               </span>
             </div>
-            <ul className="mt-4 grid gap-2">
-              <li>
-                <a
-                  href={whatsappBaseUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[13.5px] font-semibold text-[#a9c8cf] transition-colors hover:text-brand-cyan"
-                >
-                  WhatsApp
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-[#143842] pt-6 text-xs text-[#79a3ad]">
+        <div className="mt-10 border-t border-[#143842] pt-6 text-center text-xs text-[#79a3ad]">
           <span>
             © {new Date().getFullYear()} {site.name}. Todos los derechos reservados.
           </span>
-          <Link href="#" className="hover:text-brand-cyan">
-            Aviso de privacidad
-          </Link>
         </div>
       </SiteShell>
     </footer>
